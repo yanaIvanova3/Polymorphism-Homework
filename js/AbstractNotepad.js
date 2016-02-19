@@ -2,5 +2,19 @@
  * Created by Yana on 2/19/2016.
  */
 function AbstractNotepad () {
-    var _pages = [];
+    this.addText = function (page) {
+        throw new Error('This is abstract class, addText-method should be implemented');
+    }
+
+    this.deleteText = function(page) {
+        throw new Error('This is abstract class, deleteText-method should be implemented');
+    }
+
+    this.replaceText = function(page) {
+        throw new Error('This is abstract class, replaceText-method should be implemented');
+    }
+
+    this.viewPages = function() {
+        throw new Error('This is abstract class, viewPages-method should be implemented');
+    }
 }
