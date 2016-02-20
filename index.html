@@ -14,11 +14,11 @@
 
 <script type="text/javascript">
     var pagesArray = [];
-    var page1 = new Page(1, 'I am a page');
-    var page2 = new Page(2, 'I am a page');
-    var page3 = new Page(3, 'I am a page');
-    var page4 = new Page(4, 'I am a page');
-    var page5 = new Page(5, 'I am a page');
+    var page1 = new Page(1, 'I am a page1');
+    var page2 = new Page(2, 'I am a page1');
+    var page3 = new Page(3, 'I am a page1');
+    var page4 = new Page(4, 'I am a page3');
+    var page5 = new Page(5, 'I am a page5');
 
     pagesArray.push(page1, page2, page3, page4, page5);
 
@@ -29,6 +29,8 @@
         simpleNotepad.replaceText(page1, 'new text');
         simpleNotepad.deleteText(page4);
         simpleNotepad.viewPages();
+        simpleNotepad.searchInPages('I');
+        simpleNotepad.printAllPagesWithDigits();
 
     console.log('\n' + '\n' + '\n');
 
@@ -37,6 +39,8 @@
         securedNotepad.replaceText('password', page2, 'blabla');
         securedNotepad.deleteText('password', page3);
         securedNotepad.viewPages('password');
+        securedNotepad.searchInPages('password', 'I');
+        securedNotepad.printAllPagesWithDigits('password');
 
 </script>
 </html>

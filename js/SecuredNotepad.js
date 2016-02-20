@@ -50,3 +50,21 @@ SecuredNotepad.prototype.viewPages = function (password) {
         return "Wrong password!";
     }
 }
+
+SecuredNotepad.prototype.searchInPages = function (password, word) {
+    if (password == this.getPassword()) {
+        var pages = this.getPages();
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].searchWord(word);
+        }
+    }
+}
+
+SecuredNotepad.prototype.printAllPagesWithDigits = function (password) {
+    if (password == this.getPassword()) {
+        var pages = this.getPages();
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].hasDigits();
+        }
+    }
+}

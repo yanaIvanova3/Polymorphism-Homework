@@ -34,3 +34,21 @@ Page.prototype.deleteTextFromPage = function() {
 Page.prototype.viewPageInfo = function() {
     return this.getHeading() + '\n' + this.getText();
 }
+
+Page.prototype.searchWord = function(word) {
+    if (this.getText().indexOf("new") >= 0) {
+        console.log('Page ' + this.getHeading() + ' contains ' + '"' + word + '"');
+    } else {
+        return false;
+    }
+}
+
+Page.prototype.hasDigits = function () {
+    var numbers = this.getText().match(/\d+/g);
+
+    if (numbers != null) {
+        console.log('Page ' + this.getHeading() + ' contains digits');
+    } else {
+        return false;
+    }
+}

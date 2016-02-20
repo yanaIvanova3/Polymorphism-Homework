@@ -29,3 +29,17 @@ SimpleNotepad.prototype.viewPages = function () {
        console.log(pages[i].viewPageInfo());
     }
 }
+
+SimpleNotepad.prototype.searchInPages = function (word) {
+    var pages = this.getPages();
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].searchWord(word);
+    }
+}
+
+SimpleNotepad.prototype.printAllPagesWithDigits = function () {
+    var pages = this.getPages();
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].hasDigits();
+    }
+}
