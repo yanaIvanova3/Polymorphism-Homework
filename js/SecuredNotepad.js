@@ -7,7 +7,7 @@ var SecuredNotepad = (function creation (parent) {
 
         parent.call(this, notepadPages);
 
-        var notepadPassword;
+        var notepadPassword = password;
 
         this.getPassword = function() {
             return notepadPassword;
@@ -31,19 +31,18 @@ var SecuredNotepad = (function creation (parent) {
 
     SecuredNotepad.prototype.addText = function(password, page, text) {
         if (this.matchPasswords(password)) {
-            var selectedPage = this.getPages().indexOf(page);
-            this.getPages()[selectedPage].addTextToPage(text);
+            parent.prototype.addText.call(this, page, text);
         }
     }
     SecuredNotepad.prototype.deleteText = function (password, page) {
         if (this.matchPasswords(password)) {
-            parent.prototype.deleteText.call(this, password, page);
+            parent.prototype.deleteText.call(this, page);
         }
     }
 
     SecuredNotepad.prototype.replaceText = function (password, page, text) {
         if (this.matchPasswords(password)) {
-            parent.prototype.replaceText.call(this, password, page, text)
+            parent.prototype.replaceText.call(this, page, text)
         }
     }
 
@@ -55,13 +54,13 @@ var SecuredNotepad = (function creation (parent) {
 
     SecuredNotepad.prototype.searchInPages = function (password, word) {
         if (this.matchPasswords(password)) {
-            parent.prototype.searchInPages.call(this, password, word);
+            parent.prototype.searchInPages.call(this, word);
         }
     }
 
     SecuredNotepad.prototype.printAllPagesWithDigits = function (password) {
         if (this.matchPasswords(password)) {
-            parent.prototype.printAllPagesWithDigits.call(this, password);
+            parent.prototype.printAllPagesWithDigits.call(this);
         }
     }
 

@@ -46,4 +46,6 @@ var SimpleNotepad = (function create(parent) {
             pages[i].hasDigits();
         }
     }
+
+    return SimpleNotepad;
 }(AbstractNotepad));
