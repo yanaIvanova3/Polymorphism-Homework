@@ -9,12 +9,12 @@ SimpleNotepad.prototype = Object.create(AbstractNotepad.prototype);
 SimpleNotepad.prototype.constructor = SimpleNotepad;
 
 SimpleNotepad.prototype.addPage = function(page) {
-    this.pages.push(page);
+    this.notepadPages.push(page);
 }
 
 SimpleNotepad.prototype.deletePage = function (page) {
-    var index = this.pages.indexOf(page);
-    this.pages.splice(index, 1);
+    var index = this.notepadPages.indexOf(page);
+    this.notepadPages.splice(index, 1);
 }
 
 SimpleNotepad.prototype.addText = function(page, text) {

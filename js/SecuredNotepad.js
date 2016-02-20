@@ -12,7 +12,7 @@ SecuredNotepad.prototype.constructor = SecuredNotepad;
 
 SecuredNotepad.prototype.addPage = function(password, page) {
     if (password === this.notepadPassword) {
-        this.pages.push(page);
+        this.notepadPages.push(page);
     }
 
     return "Wrong password!";
@@ -20,8 +20,8 @@ SecuredNotepad.prototype.addPage = function(password, page) {
 
 SecuredNotepad.prototype.deletePage = function (page) {
     if (password === this.notepadPassword) {
-        var index = this.pages.indexOf(page);
-        this.pages.splice(index, 1);
+        var index = this.notepadPages.indexOf(page);
+        this.notepadPages.splice(index, 1);
     }
 
     return "Wrong password!";
