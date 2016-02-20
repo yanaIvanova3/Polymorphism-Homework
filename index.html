@@ -11,6 +11,8 @@
 <script type="text/javascript" src="js/AbstractNotepad.js"></script>
 <script type="text/javascript" src="js/SimpleNotepad.js"></script>
 <script type="text/javascript" src="js/SecuredNotepad.js"></script>
+<script type="text/javascript" src="js/AbstractElectronicDevice.js"></script>
+<script type="text/javascript" src="js/SecuredElectronicDevice.js"></script>
 
 <script type="text/javascript">
     var pagesArray = [];
@@ -41,6 +43,19 @@
         securedNotepad.viewPages('password');
         securedNotepad.searchInPages('password', 'I');
         securedNotepad.printAllPagesWithDigits('password');
+
+    console.log('\n' + '\n' + '\n');
+
+    var securedElDevice = new SecuredElectronicDevice(pagesArray, 'qwerty');
+        securedElDevice.startDevice();
+        securedElDevice.addText('querty', page3, 'bub');
+        securedElDevice.replaceText('querty', page5, 'blabla');
+        securedElDevice.deleteText('querty', page1);
+        securedElDevice.viewPages('querty');
+        securedElDevice.searchInPages('querty', 'am');
+
+
+
 
 </script>
 </html>

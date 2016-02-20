@@ -1,70 +1,65 @@
 /**
  * Created by Yana on 2/19/2016.
  */
-function SecuredNotepad (notepadPages, password) {
-    AbstractNotepad.call(this, notepadPages);
+var securedNotepad = (function creation (parent) {
 
-    var notepadPassword = password;
+    function SecuredNotepad (notepadPages, password) {
 
-    this.getPassword = function() {
-        return notepadPassword;
-    }
-}
+        SimpleNotepad.call(this, notepadPages);
 
-SecuredNotepad.prototype = Object.create(AbstractNotepad.prototype);
-SecuredNotepad.prototype.constructor = SecuredNotepad;
+        var notepadPassword = password;
 
-SecuredNotepad.prototype.addText = function(password, page, text) {
-    if (password == this.getPassword()) {
-        var selectedPage = this.getPages().indexOf(page);
-        this.getPages()[selectedPage].addTextToPage(text);
-    } else {
-        return "Wrong password!";
-    }
-}
-SecuredNotepad.prototype.deleteText = function (password, page) {
-    if (password == this.getPassword()) {
-        var selectedPage = this.getPages().indexOf(page);
-        this.getPages()[selectedPage].deleteTextFromPage();
-    }else {
-        return "Wrong password!";
-    }
-}
-
-SecuredNotepad.prototype.replaceText = function (password, page, text) {
-    if (password == this.getPassword()) {
-        var selectedPage = this.getPages().indexOf(page);
-        this.getPages()[selectedPage].setText(text);
-    } else {
-        return "Wrong password!";
-    }
-}
-
-SecuredNotepad.prototype.viewPages = function (password) {
-    if (password == this.getPassword()) {
-        var pages = this.getPages();
-        for (var i = 0; i < pages.length; i++) {
-            console.log(pages[i].viewPageInfo());
-        };
-    } else {
-        return "Wrong password!";
-    }
-}
-
-SecuredNotepad.prototype.searchInPages = function (password, word) {
-    if (password == this.getPassword()) {
-        var pages = this.getPages();
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].searchWord(word);
+        this.getPassword = function() {
+            return notepadPassword;
         }
     }
-}
 
-SecuredNotepad.prototype.printAllPagesWithDigits = function (password) {
-    if (password == this.getPassword()) {
-        var pages = this.getPages();
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].hasDigits();
+    SecuredNotepad.prototype = Object.create(SimpleNotepad.prototype);
+    SecuredNotepad.prototype.constructor = SecuredNotepad;
+
+    SecuredNotepad.prototype.matchPasswords = function (password) {
+        if (this.getPassword() === password) {
+            return true;
+        } else {
+            console.log('Wrong password!');
         }
     }
-}
+
+    SecuredNotepad.prototype.addText = function(password, page, text) {
+        if (this.matchPasswords(password)) {
+            var selectedPage = this.getPages().indexOf(page);
+            this.getPages()[selectedPage].addTextToPage(text);
+        }
+    }
+    SecuredNotepad.prototype.deleteText = function (password, page) {
+        if (this.matchPasswords(password)) {
+            SimpleNotepad.prototype.deleteText.call(this, password, page);
+        }
+    }
+
+    SecuredNotepad.prototype.replaceText = function (password, page, text) {
+        if (this.matchPasswords(password)) {
+            SimpleNotepad.prototype.replaceText.call(this, password, page, text)
+        }
+    }
+
+    SecuredNotepad.prototype.viewPages = function (password) {
+        if (this.matchPasswords(password)) {
+            SimpleNotepad.prototype.viewPages.call(this, password);
+        }
+    }
+
+    SecuredNotepad.prototype.searchInPages = function (password, word) {
+        if (this.matchPasswords(password)) {
+            SimpleNotepad.prototype.searchInPages.call(this, password, word);
+        }
+    }
+
+    SecuredNotepad.prototype.printAllPagesWithDigits = function (password) {
+        if (this.matchPasswords(password)) {
+            SimpleNotepad.prototype.printAllPagesWithDigits.call(this, password);
+        }
+    }
+
+    return SecuredNotepad;
+}(SimpleNotepad));
