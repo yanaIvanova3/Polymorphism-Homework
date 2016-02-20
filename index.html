@@ -11,8 +11,8 @@
 <script type="text/javascript" src="js/AbstractNotepad.js"></script>
 <script type="text/javascript" src="js/SimpleNotepad.js"></script>
 <script type="text/javascript" src="js/SecuredNotepad.js"></script>
-<script type="text/javascript" src="js/AbstractElectronicDevice.js"></script>
-<script type="text/javascript" src="js/SecuredElectronicDevice.js"></script>
+<!--<script type="text/javascript" src="js/AbstractElectronicDevice.js"></script>-->
+<!--<script type="text/javascript" src="js/SecuredElectronicDevice.js"></script>-->
 
 <script type="text/javascript">
     var pagesArray = [];
@@ -22,40 +22,39 @@
     var page4 = new Page(4, 'I am a page3');
     var page5 = new Page(5, 'I am a page5');
 
-    pagesArray.push(page1, page2, page3, page4, page5);
 
 
 
-    var simpleNotepad = new SimpleNotepad(pagesArray);
-        simpleNotepad.addText(page2, 'bb');
-        simpleNotepad.replaceText(page1, 'new text');
-        simpleNotepad.deleteText(page4);
-        simpleNotepad.viewPages();
-        simpleNotepad.searchInPages('I');
-        simpleNotepad.printAllPagesWithDigits();
 
-    console.log('\n' + '\n' + '\n');
-
-    var securedNotepad = new SecuredNotepad(pagesArray, 'password');
-        securedNotepad.addText('password', page1, 'kfkf');
-        securedNotepad.replaceText('password', page2, 'blabla');
-        securedNotepad.deleteText('password', page3);
-        securedNotepad.viewPages('password');
-        securedNotepad.searchInPages('password', 'I');
-        securedNotepad.printAllPagesWithDigits('password');
+        SimpleNotepad.addText(page2, 'bb');
+        SimpleNotepad.replaceText(page1, 'new text');
+        SimpleNotepad.deleteText(page4);
+        SimpleNotepad.viewPages();
+        SimpleNotepad.searchInPages('I');
+        SimpleNotepad.printAllPagesWithDigits();
 
     console.log('\n' + '\n' + '\n');
 
-    var securedElDevice = new SecuredElectronicDevice(pagesArray, 'qwerty');
-        securedElDevice.startDevice();
-        securedElDevice.addText('querty', page3, 'bub');
-        securedElDevice.replaceText('querty', page5, 'blabla');
-        securedElDevice.deleteText('querty', page1);
-        securedElDevice.viewPages('querty');
-        securedElDevice.searchInPages('querty', 'am');
+
+        SecuredNotepad.addText('password', page1, 'kfkf');
+        SecuredNotepad.replaceText('password', page2, 'blabla');
+        SecuredNotepad.deleteText('password', page3);
+        SecuredNotepad.viewPages('password');
+        SecuredNotepad.searchInPages('password', 'I');
+        SecuredNotepad.printAllPagesWithDigits('password');
+
+    console.log('\n' + '\n' + '\n');
 
 
-
+//        securedElDevice.startDevice();
+//        securedElDevice.addText('querty', page3, 'bub');
+//        securedElDevice.replaceText('querty', page5, 'blabla');
+//        securedElDevice.deleteText('querty', page1);
+//        securedElDevice.viewPages('querty');
+//        securedElDevice.searchInPages('querty', 'am');
+//
+//
+//
 
 </script>
 </html>

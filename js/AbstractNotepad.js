@@ -7,6 +7,10 @@ function AbstractNotepad (notepadPages) {
     this.getPages = function () {
         return _notepadPages;
     }
+
+    this.setPages = function (notepadPages) {
+        _notepadPages = notepadPages;
+    }
 }
 AbstractNotepad.prototype.addText = function () {
     throw new Error('This is abstract class, addText-method should be implemented');

@@ -1,20 +1,24 @@
 /**
- * Created by Yana on 2/19/2016.
+ * Created by Yana on 2/18/2016.
  */
-var securedNotepad = (function creation (parent) {
+var SecuredNotepad = (function creation (parent) {
 
     function SecuredNotepad (notepadPages, password) {
 
-        SimpleNotepad.call(this, notepadPages);
+        parent.call(this, notepadPages);
 
-        var notepadPassword = password;
+        var notepadPassword;
 
         this.getPassword = function() {
             return notepadPassword;
         }
+
+        this.setPassword = function(password) {
+            notepadPassword = password;
+        }
     }
 
-    SecuredNotepad.prototype = Object.create(SimpleNotepad.prototype);
+    SecuredNotepad.prototype = Object.create(parent.prototype);
     SecuredNotepad.prototype.constructor = SecuredNotepad;
 
     SecuredNotepad.prototype.matchPasswords = function (password) {
@@ -33,31 +37,31 @@ var securedNotepad = (function creation (parent) {
     }
     SecuredNotepad.prototype.deleteText = function (password, page) {
         if (this.matchPasswords(password)) {
-            SimpleNotepad.prototype.deleteText.call(this, password, page);
+            parent.prototype.deleteText.call(this, password, page);
         }
     }
 
     SecuredNotepad.prototype.replaceText = function (password, page, text) {
         if (this.matchPasswords(password)) {
-            SimpleNotepad.prototype.replaceText.call(this, password, page, text)
+            parent.prototype.replaceText.call(this, password, page, text)
         }
     }
 
     SecuredNotepad.prototype.viewPages = function (password) {
         if (this.matchPasswords(password)) {
-            SimpleNotepad.prototype.viewPages.call(this, password);
+            parent.prototype.viewPages.call(this, password);
         }
     }
 
     SecuredNotepad.prototype.searchInPages = function (password, word) {
         if (this.matchPasswords(password)) {
-            SimpleNotepad.prototype.searchInPages.call(this, password, word);
+            parent.prototype.searchInPages.call(this, password, word);
         }
     }
 
     SecuredNotepad.prototype.printAllPagesWithDigits = function (password) {
         if (this.matchPasswords(password)) {
-            SimpleNotepad.prototype.printAllPagesWithDigits.call(this, password);
+            parent.prototype.printAllPagesWithDigits.call(this, password);
         }
     }
 

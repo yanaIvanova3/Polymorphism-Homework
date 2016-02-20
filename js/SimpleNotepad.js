@@ -2,7 +2,7 @@
  * Created by Yana on 2/19/2016.
  */
 
-var simpleNotepad = (function create(parent) {
+var SimpleNotepad = (function create(parent) {
 
     function SimpleNotepad(notepadPages) {
         parent.call(this, notepadPages);
