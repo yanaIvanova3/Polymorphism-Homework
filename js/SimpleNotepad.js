@@ -1,10 +1,8 @@
 /**
  * Created by Yana on 2/19/2016.
  */
-function SimpleNotepad () {
-    AbstractNotepad.call(this);
-
-    var pages = [];
+function SimpleNotepad (pages) {
+    AbstractNotepad.call(this, notepadPages);
 }
 
 SimpleNotepad.prototype = Object.create(AbstractNotepad.prototype);

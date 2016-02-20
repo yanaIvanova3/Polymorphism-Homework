@@ -1,7 +1,13 @@
 /**
  * Created by Yana on 2/19/2016.
  */
-function AbstractNotepad () {
+function AbstractNotepad (pages) {
+    var notepadPages = pages;
+
+    this.getPages = function() {
+        return notepadPages;
+    }
+
     this.addText = function (page) {
         throw new Error('This is abstract class, addText-method should be implemented');
     }
