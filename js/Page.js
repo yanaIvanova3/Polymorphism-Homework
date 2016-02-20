@@ -23,13 +23,14 @@ function Page (heading, text) {
 }
 
 Page.prototype.addTextToPage = function (text) {
-    this._text += text;
+    var currentText = this.getText();
+    this.setText(currentText += text);
 }
 
 Page.prototype.deleteTextFromPage = function() {
-    this._text = '';
+    this.setText('');
 }
 
 Page.prototype.viewPageInfo = function() {
-    return this._heading + '/n' + this._text;
+    return this.getHeading() + '\n' + this.getText();
 }

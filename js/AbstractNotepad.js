@@ -1,26 +1,25 @@
 /**
  * Created by Yana on 2/19/2016.
  */
-function AbstractNotepad (pages) {
-    var notepadPages = pages;
+function AbstractNotepad (notepadPages) {
+    var _notepadPages = notepadPages;
 
-    this.getPages = function() {
-        return notepadPages;
+    this.getPages = function () {
+        return _notepadPages;
     }
-
-    this.addText = function (page) {
+}
+AbstractNotepad.prototype.addText = function () {
         throw new Error('This is abstract class, addText-method should be implemented');
-    }
+}
 
-    this.deleteText = function(page) {
+AbstractNotepad.prototype.deleteText = function() {
         throw new Error('This is abstract class, deleteText-method should be implemented');
-    }
+}
 
-    this.replaceText = function(page) {
+AbstractNotepad.prototype.replaceText = function() {
         throw new Error('This is abstract class, replaceText-method should be implemented');
-    }
+}
 
-    this.viewPages = function() {
+AbstractNotepad.prototype.viewPages = function() {
         throw new Error('This is abstract class, viewPages-method should be implemented');
-    }
 }
