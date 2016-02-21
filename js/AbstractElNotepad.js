@@ -4,7 +4,7 @@
 
 
 function AbstractElNotepad (notepadPages, password, isTurnedOn) {
-    parent.call(this, notepadPages, password);
+    SecuredNotepad.call(this, notepadPages, password);
 
     var _isTurnedOn = isTurnedOn;
 
@@ -17,7 +17,7 @@ function AbstractElNotepad (notepadPages, password, isTurnedOn) {
     }
 }
 
-    AbstractElNotepad.prototype = Object.create(parent.prototype);
+    AbstractElNotepad.prototype = Object.create(SecuredNotepad.prototype);
     AbstractElNotepad.prototype.constructor = AbstractElNotepad;
 
     AbstractElNotepad.prototype.start = function() {

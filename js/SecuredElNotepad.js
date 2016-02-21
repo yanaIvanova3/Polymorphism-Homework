@@ -31,31 +31,31 @@ var SecuredElNotepad = (function (parent) {
             parent.prototype.addText.call(this, password, page, text);
         }
     }
-    SecuredNotepad.prototype.deleteText = function (password, page) {
+    SecuredElNotepad.prototype.deleteText = function (password, page) {
         if (this.isStarted()) {
             parent.prototype.deleteText.call(this,password, page);
         }
     }
 
-    SecuredNotepad.prototype.replaceText = function (password, page, text) {
+    SecuredElNotepad.prototype.replaceText = function (password, page, text) {
         if (this.isStarted()) {
             parent.prototype.replaceText.call(this, password, page, text)
         }
     }
 
-    SecuredNotepad.prototype.viewPages = function (password) {
+    SecuredElNotepad.prototype.viewPages = function (password) {
         if (this.isStarted()) {
             parent.prototype.viewPages.call(this, password);
         }
     }
 
-    SecuredNotepad.prototype.searchInPages = function (password, word) {
+    SecuredElNotepad.prototype.searchInPages = function (password, word) {
         if (this.isStarted()) {
             parent.prototype.searchInPages.call(this, password, word);
         }
     }
 
-    SecuredNotepad.prototype.printAllPagesWithDigits = function (password) {
+    SecuredElNotepad.prototype.printAllPagesWithDigits = function (password) {
         if (this.isStarted()) {
             parent.prototype.printAllPagesWithDigits.call(this, password);
         }
