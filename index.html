@@ -43,18 +43,18 @@
     secured.searchInPages('password', 'I');
     secured.printAllPagesWithDigits('password');
 
-//    console.log('\n' + '\n' + '\n');
+    console.log('\n' + '\n' + '\n');
+
+    var securedElDevice = new SecuredElNotepad(pagesArray, 'password', false);
+//    securedElDevice.start();
+    securedElDevice.addText('password', page3, 'bub');
+    securedElDevice.replaceText('password', page5, 'blabla');
+    securedElDevice.deleteText('password', page1);
+    securedElDevice.viewPages('password');
+    securedElDevice.searchInPages('password', 'am');
 
 
-//        securedElDevice.startDevice();
-//        securedElDevice.addText('querty', page3, 'bub');
-//        securedElDevice.replaceText('querty', page5, 'blabla');
-//        securedElDevice.deleteText('querty', page1);
-//        securedElDevice.viewPages('querty');
-//        securedElDevice.searchInPages('querty', 'am');
-//
-//
-//
+
 
 </script>
 </html>
